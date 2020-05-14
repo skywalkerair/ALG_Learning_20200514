@@ -1,7 +1,7 @@
 # 配置VSCode C++ 环境
 1. F5  添加C++(GDB/LLDB) 
 生成 launch.json文件，修改
-===
+
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -29,11 +29,10 @@
         }
     ]
 }
-===
 
 
 2. shift+ctrl+B 生成tasks.json文件
-===
+
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -50,7 +49,7 @@
         }
     ]
 }
-===
+
 
 # VSCode 上传 github
 1. 先在github上创建一个新的项目
