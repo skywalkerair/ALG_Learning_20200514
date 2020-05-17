@@ -24,10 +24,10 @@
                     "description": "Enable pretty-printing for gdb",  
                     "text": "-enable-pretty-printing",  
                     "ignoreFailures": true  
-                }  
-            ]  
-        }  
-    ]  
+                 }  
+             ]  
+         }  
+     ]  
 }  
 
 
@@ -44,10 +44,10 @@
             "group": {  
                 "kind": "build",  
                 "isDefault": true  
-            }  
-        }  
-    ]  
-}  
+             }  
+         }  
+     ]  
+ }  
 
 
 # VSCode 上传 github  
