@@ -6,6 +6,11 @@ using namespace std;
 
 int main()
 {
-    cout << "aaa "<<endl;
+    int a = 1;
+    int b = 10;
+    swap(a,b);
+    cout << " a = "<< a <<endl;
+    cout << " b = "<< b <<endl;
+
     return 0;
 }
