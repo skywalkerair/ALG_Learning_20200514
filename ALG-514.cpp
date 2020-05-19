@@ -2,6 +2,7 @@
     20200517:Day 1:交换算法;冒泡排序
     20200518:Day 2:选择排序,顺序查找（无序）;折半查找
     递归算法
+    20200519:Day 3:Permutations;插入排序
 */
 #include<iostream>
 using namespace std;
@@ -12,7 +13,16 @@ int BinarySearch(int *a,const int n,const int x);
 long Factorial(int n);
 int BinarySearch_I(int *a,const int n,const int x);
 int BinarySearch_R(int *a,const int x,const int left,const int right);
+void Permutations(char *p,const int k,const int m);
 
+/*插入排序：
+    低级： 冒泡、选择、插入
+    高级：
+*/
+template<class T>
+void InsertionSort(T *a,int n);
+template<class T>
+void InsertionSort_2(T *a,int n);
 
 int main()
 {
@@ -30,8 +40,18 @@ int main()
 //         cout<<"没找到！"<<endl;
 //     else
 //         cout<<"数组中的第["<<result<<"] = "<<list[result]<<endl;
-    long x =  Factorial(5);
-    cout << "阶乘5="<<x<<endl;
+//    long x =  Factorial(5);
+  //  cout << "阶乘5="<<x<<endl;
+
+    // char s[] = "abc";
+    // Permutations(s,0,2);
+    int x[] = {2,1,4,1,5,3,1,5,8,7,9,6,5};
+    InsertionSort(x,13);
+
+    for(int i = 0;i<13;i++)
+    {
+        cout<<x[i]<< " ";
+    }
 
     return 0;
 }
@@ -130,4 +150,58 @@ int BinarySearch_R(int *a,const int x,const int left,const int right)
         else return middle;
     }
     return -1;
+}
+
+void Permutations(char *p,const int k,const int m)
+{
+    if(k == m)
+    {
+        for(int i = 0;i<=m;i++)
+            cout<<p[i];
+        cout<<endl;
+    }
+    else
+    {
+        for(int i = k;i<=m;i++)
+        {
+            swap(p[k],p[i]);
+            Permutations(p,k+1,m);
+            swap(p[k],p[i]);
+        }
+    }
+}
+
+template<class T>
+void InsertionSort(T *a,int n)
+{
+    T in,out;
+    for(out = 1;out<n;out++)
+    {
+        T tmp = a[out];
+        in = out;
+        while(in>0 && a[in-1]>=tmp)
+        {
+            a[in] = a[in-1];
+            --in;
+        }
+        a[in] = tmp;
+    }
+}
+
+template<class T>
+void InsertionSort_2(T *a,int n)
+{
+    //a[0]用来保存排序使用，不能保存原始的数据
+    for(int j = 2;j<=n;j++)
+    {
+        T temp = a[j];
+        a[0] = temp;
+        int i = j-1;
+        while(temp < a[i])
+        {
+            a[i+1] = a[i];
+            i--;
+        }
+        a[i+1] = temp;
+    }
 }
