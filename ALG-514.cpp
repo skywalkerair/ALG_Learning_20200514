@@ -24,6 +24,11 @@ void InsertionSort(T *a,int n);
 template<class T>
 void InsertionSort_2(T *a,int n);
 
+//快速排序算法
+template<class T>
+void QuickSort(T *a,const int left,const int right);
+
+
 int main()
 {
 //     int list[8] = {3,4,1,2,8,9,45,5};
@@ -203,5 +208,28 @@ void InsertionSort_2(T *a,int n)
             i--;
         }
         a[i+1] = temp;
+    }
+}
+
+//快速排序算法
+template<class T>
+void QuickSort(T *a,const int left,const int right)
+{
+    if(left < right)
+    {
+        //选枢轴进行划分
+        int i = left;
+        int j = right+1;//为什么要 +1
+        int pivot = a[left];
+        
+        do{
+            do i++;while(a[i]<pivot);
+            do j--;while(a[j]>pivot);
+            if(i<j) swap(a[i],a[j]);
+        }while(i<j);
+        swap(a[left],a[j]);
+
+        QuickSort(a,left,j-1);
+        QuickSort(a,j+1,right);
     }
 }
