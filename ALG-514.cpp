@@ -2,7 +2,8 @@
     20200517:Day 1:交换算法;冒泡排序
     20200518:Day 2:选择排序,顺序查找（无序）;折半查找
     递归算法
-    20200519:Day 3:Permutations;插入排序
+    20200519:Day 3:Permutations;插入排序;快速排序
+    20200520:Day 4:归并排序迭代的方式;
 */
 #include<iostream>
 using namespace std;
@@ -28,6 +29,8 @@ void InsertionSort_2(T *a,int n);
 template<class T>
 void QuickSort(T *a,const int left,const int right);
 
+template<class T>
+void Merge(T *initList,T *mergedList,const int l,const int m,const int n);
 
 int main()
 {
@@ -50,8 +53,10 @@ int main()
 
     // char s[] = "abc";
     // Permutations(s,0,2);
-    int x[] = {2,1,4,1,5,3,1,5,8,7,9,6,5};
-    InsertionSort(x,13);
+    int x[] = {0,2,1,4,1,5,3,1,5,8,7,9,6,5};
+    int y[14] = {0};
+    Merge(x,y,1,4,13);
+    //InsertionSort(x,13);
 
     for(int i = 0;i<13;i++)
     {
@@ -232,4 +237,23 @@ void QuickSort(T *a,const int left,const int right)
         QuickSort(a,left,j-1);
         QuickSort(a,j+1,right);
     }
+}
+
+
+template<class T>
+void Merge(T mi,T mj)
+{
+    if(mi == mj) return;
+
+    Merge(mi,(mi+mj)/2);
+    Merge((mi+mj)/2+1,mi;
+
+    int i = mi,j = (mi + mj)/2+1,arrt[1001];
+    for(int k = mi;k <= mj;k++)
+    {
+        if(i <= (mi+mj)/2 && arr[i]<=arr[j]|| j> mj) arrt[k]=arr[i++];
+        else arrt[k] = arr[j++];
+    }
+    for(int k =mi;k<=mj;k++) arr[k]=arrt[k];
+
 }
