@@ -19,7 +19,7 @@ int main()
     e.data = 'E';
 
     tree.root = &add;
-    add.leftChild = &b;
+    add.leftChild = &subtract;
     add.rightChild = &e;
 
     subtract.leftChild = &multi;
@@ -31,7 +31,8 @@ int main()
     divide.leftChild = &a;
     divide.rightChild = &b;
 
-
-
+    cout<<"中序遍历：";
+    tree.InOrder();
+    cout<<endl;
     return 0;
 }

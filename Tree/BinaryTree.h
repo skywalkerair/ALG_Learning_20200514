@@ -27,13 +27,41 @@ class BinaryTree
 public:
     //可以对二插树进行的操作
     void InOrder();
+    void InOrder(TreeNode<T>* currentNode);
     void PreOrder();
     void PostOrder();
     void LevelOrder();
+    void Visit(TreeNode<T>* currentNode);
 
 public:
     TreeNode<T> *root;
 
 };
+
+
+template<class T>
+void BinaryTree<T>::InOrder()
+{
+    InOrder(root);
+    //Visit(root);
+}
+
+template<class T>
+void BinaryTree<T>::Visit(TreeNode<T>* currentNode)
+{
+    std::cout<<currentNode->data;
+}
+
+
+template<class T>
+void BinaryTree<T>::InOrder(TreeNode<T>* currentNode)
+{
+    if(currentNode)
+    {
+        InOrder(currentNode->leftChild);
+        Visit(currentNode);
+        InOrder(currentNode->rightChild);
+    }
+}
 
 #endif
