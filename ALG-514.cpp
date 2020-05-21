@@ -6,6 +6,8 @@
     20200520:Day 4:归并排序迭代的方式;
 */
 #include<iostream>
+#include"MyStack.h"
+#include"MyUtil.h"
 using namespace std;
 void BubbleSort(int list[],const int n);
 void SelectSort(int list[],const int n);
@@ -32,6 +34,10 @@ void QuickSort(T *a,const int left,const int right);
 template<class T>
 void Merge(T *initList,T *mergedList,const int l,const int m,const int n);
 
+//栈 -顺序栈 :先进后出
+
+
+
 int main()
 {
 //     int list[8] = {3,4,1,2,8,9,45,5};
@@ -53,16 +59,20 @@ int main()
 
     // char s[] = "abc";
     // Permutations(s,0,2);
-    int x[] = {0,2,1,4,1,5,3,1,5,8,7,9,6,5};
-    int y[14] = {0};
-    Merge(x,y,1,4,13);
+    //int x[] = {0,2,1,4,1,5,3,1,5,8,7,9,6,5};
+    //int y[14] = {0};
+    //Merge(x,y,1,4,13);
     //InsertionSort(x,13);
 
-    for(int i = 0;i<13;i++)
-    {
-        cout<<x[i]<< " ";
-    }
+    // for(int i = 0;i<13;i++)
+    // {
+    //     cout<<x[i]<< " ";
+    // }
 
+    MyStack<int> st;
+
+    st.Push(999);
+    cout<<"Hello"<<endl;
     return 0;
 }
 
@@ -246,14 +256,16 @@ void Merge(T mi,T mj)
     if(mi == mj) return;
 
     Merge(mi,(mi+mj)/2);
-    Merge((mi+mj)/2+1,mi;
+    Merge((mi+mj)/2+1,mi);
 
     int i = mi,j = (mi + mj)/2+1,arrt[1001];
     for(int k = mi;k <= mj;k++)
     {
-        if(i <= (mi+mj)/2 && arr[i]<=arr[j]|| j> mj) arrt[k]=arr[i++];
-        else arrt[k] = arr[j++];
+        if(i <= (mi+mj)/2 && arrt[i]<=arrt[j]|| j> mj) arrt[k]=arrt[i++];
+        else arrt[k] = arrt[j++];
     }
-    for(int k =mi;k<=mj;k++) arr[k]=arrt[k];
+    for(int k =mi;k<=mj;k++) arrt[k]=arrt[k];
 
 }
+
+
